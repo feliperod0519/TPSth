@@ -61,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
                 InverseEvaluator inv = new InverseEvaluator();
                 double d =inv.EvaluateInverse(str.output.split(" "),0);
                 TextView t2 = (TextView)findViewById(R.id.text2);
+
                 t2.setText(String.valueOf(d));
             }
 
