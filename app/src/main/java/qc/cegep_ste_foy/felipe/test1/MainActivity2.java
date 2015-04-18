@@ -9,14 +9,16 @@ import android.view.*;
 import android.view.View.*;
 import java.lang.*;
 
-public class MainActivity extends ActionBarActivity {
+import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
+
+public class MainActivity2 extends ActionBarActivity {
 
     Button b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main2);
         addListenerOnButton();
     }
 

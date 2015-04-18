@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Test1</string>
+    <string name="app_name">CalculatorG2</string>
+    <string name="action_settings">Settings</string>
+    <string name="degree">Deg</string>
+    <string name="radian">Rad</string>
     <string name="id">TestBox</string>
     <string name="hello_world">3 + 4</string>
-    <string name="action_settings">Settings</string>
+
+
 </resources>
