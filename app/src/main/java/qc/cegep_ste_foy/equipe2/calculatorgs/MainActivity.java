@@ -4,11 +4,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import java.util.List;
+
+import qc.cegep_ste_foy.equipe2.calculatorgs.helpers.ApplicationData;
+import qc.cegep_ste_foy.equipe2.calculatorgs.helpers.NetworkRequest;
+import qc.cegep_ste_foy.equipe2.calculatorgs.models.DeviceOperation;
+import qc.cegep_ste_foy.equipe2.calculatorgs.models.NetworkResult;
 import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 //import qc.cegep_ste_foy.felipe.test1.R;
 
@@ -26,6 +37,8 @@ public class MainActivity extends ActionBarActivity  {
     Button buttonSin, buttonCos, buttonTan;
 
     Button buttonLog, buttonLog10;
+
+    Button buttonShowHistory;
 
 	String equation="";
 	Vibrator vibrator;
@@ -69,6 +82,8 @@ public class MainActivity extends ActionBarActivity  {
 
         buttonLog = (Button)findViewById(R.id.buttonLog);
         buttonLog10 = (Button)findViewById(R.id.buttonLog10);
+
+        buttonShowHistory = (Button)findViewById(R.id.buttonShowHistory);
 
         editText=(EditText)findViewById(R.id.editText1);  
         edittext2=(EditText)findViewById(R.id.editText2);  
@@ -183,6 +198,25 @@ public class MainActivity extends ActionBarActivity  {
         double res = calculator.getResult();
         String total2 = String.valueOf(res);
         editText.setText(total2);
+
+        saveToHistory(equation);
+    }
+
+    private void saveToHistory(String operation) {
+        final String deviceId = (ApplicationData.getCurrentSessionId(this) == null)? ApplicationData.getSessionId(this):ApplicationData.getCurrentSessionId(this);
+        DeviceOperation deviceOperation = new DeviceOperation(deviceId, operation);
+        NetworkRequest.api().createDeviceOperation(deviceOperation, new Callback<NetworkResult>() {
+            @Override
+            public void success(NetworkResult networkResult, Response response) {
+                Log.i("saveToHistory", "Success: " + networkResult.getResult());
+                ApplicationData.saveCurrentSessionId(MainActivity.this, deviceId);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.i("saveToHistory", "Error: " + error.toString());
+            }
+        });
     }
 
     public void onClickListenerSin(View v){
@@ -220,4 +254,50 @@ public class MainActivity extends ActionBarActivity  {
         equation = "";
         addString(AppConstants.LOG10);
     }
+
+    public void onClickListenerShowHistory(View v) {
+        String deviceId = ApplicationData.getCurrentSessionId(this);
+        NetworkRequest.api().findDeviceOperationsForDeviceId(deviceId, new Callback<List<DeviceOperation>>() {
+            @Override
+            public void success(List<DeviceOperation> deviceOperations, Response response) {
+                String history = "";
+                for (DeviceOperation deviceOperation : deviceOperations) {
+                    String line = deviceOperation.getOperation() + "\n";
+                    history += line;
+                }
+
+                edittext2.setText(history);
+                equation = "";
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.i("Get device history", "Error: " + error.toString());
+                Toast.makeText(MainActivity.this, getString(R.string.get_history_error), Toast.LENGTH_LONG).show();
+
+            }
+        });
+    }
+
+
+    public void onClickListenerClearHistory(View v){
+        String deviceId = ApplicationData.getCurrentSessionId(this);
+        NetworkRequest.api().deleteDeviceOperationsForDeviceId(deviceId, new Callback<NetworkResult>() {
+            @Override
+            public void success(NetworkResult networkResult, Response response) {
+                Toast.makeText(MainActivity.this, getString(R.string.clear_history_success), Toast.LENGTH_SHORT).show();
+                edittext2.setText("");
+                editText.setText("0.0");
+                equation = "";
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.i("Get device history", "Error: " + error.toString());
+                Toast.makeText(MainActivity.this, getString(R.string.clear_history_error), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
 }

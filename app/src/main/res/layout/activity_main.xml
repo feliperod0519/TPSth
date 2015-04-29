@@ -357,6 +357,26 @@
                     android:text="Log"
                     android:textColor="@color/White" />
 
+                <Button
+                    android:id="@+id/buttonShowHistory"
+                    style="@style/ButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerShowHistory"
+                    android:text="Hist"
+                    android:textColor="@color/White" />
+
+                <Button
+                    android:id="@+id/buttonClearHistory"
+                    style="@style/ButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerClearHistory"
+                    android:text="Eff.H."
+                    android:textColor="@color/White" />
+
             </LinearLayout>
 
 

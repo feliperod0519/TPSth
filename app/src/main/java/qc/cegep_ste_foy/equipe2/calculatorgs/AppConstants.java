@@ -5,6 +5,8 @@ package qc.cegep_ste_foy.equipe2.calculatorgs;
  */
 public class AppConstants {
 
+    public static final String ENDPOINT = "http://10.0.3.2:8080/api";
+
     public static enum OperationType {
         BASIC,
         TRIGONOMETRIQUE,
@@ -17,5 +19,8 @@ public class AppConstants {
     public static final String TAN_TRIGO = "tan ";
     public static final String LOG = "log ";
     public static final String LOG10 = "log10 ";
+
+    public static final String CURRENT_SESSION_ID = "CURRENT_SESSION_ID ";
+
 
 }
