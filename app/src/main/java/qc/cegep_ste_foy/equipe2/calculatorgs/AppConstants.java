@@ -7,13 +7,6 @@ public class AppConstants {
 
     public static final String ENDPOINT = "http://10.0.3.2:8080/api";
 
-    public static enum OperationType {
-        BASIC,
-        TRIGONOMETRIQUE,
-        LOGARITHMIQUE,
-        COURBE
-    }
-
     public static final String SIN_TRIGO = "sin ";
     public static final String COS_TRIGO = "cos ";
     public static final String TAN_TRIGO = "tan ";

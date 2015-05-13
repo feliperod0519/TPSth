@@ -9,6 +9,7 @@
     <string name="get_history_error">Une erreur s\'est produite lors de l\'affichage de l\'historique!</string>
     <string name="clear_history_success">L\'historique a été effacé!</string>
     <string name="clear_history_error">L\'historique n\'a pas été effacé!</string>
+    <string name="title_activity_main3">Main3Activity</string>
 
 
 

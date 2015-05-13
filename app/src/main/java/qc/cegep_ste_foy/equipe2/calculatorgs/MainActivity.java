@@ -46,8 +46,6 @@ public class MainActivity extends ActionBarActivity  {
 
     private boolean isRadianTrigo = false;
 
-    AppConstants.OperationType operationType = AppConstants.OperationType.BASIC;
-	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +89,8 @@ public class MainActivity extends ActionBarActivity  {
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE); 
        
         editText.setText("0.0");
+
+        findDeviceOperationsForCurrentDeviceId();
 
     }
 
@@ -256,6 +256,30 @@ public class MainActivity extends ActionBarActivity  {
     }
 
     public void onClickListenerShowHistory(View v) {
+        findDeviceOperationsForCurrentDeviceId();
+    }
+
+    public void onClickListenerClearHistory(View v){
+        String deviceId = ApplicationData.getCurrentSessionId(this);
+        NetworkRequest.api().deleteDeviceOperationsForDeviceId(deviceId, new Callback<NetworkResult>() {
+            @Override
+            public void success(NetworkResult networkResult, Response response) {
+                Toast.makeText(MainActivity.this, getString(R.string.clear_history_success), Toast.LENGTH_SHORT).show();
+                edittext2.setText("");
+                editText.setText("0.0");
+                equation = "";
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.i("Get device history", "Error: " + error.toString());
+                Toast.makeText(MainActivity.this, getString(R.string.clear_history_error), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    private void findDeviceOperationsForCurrentDeviceId() {
         String deviceId = ApplicationData.getCurrentSessionId(this);
         NetworkRequest.api().findDeviceOperationsForDeviceId(deviceId, new Callback<List<DeviceOperation>>() {
             @Override
@@ -274,27 +298,6 @@ public class MainActivity extends ActionBarActivity  {
             public void failure(RetrofitError error) {
                 Log.i("Get device history", "Error: " + error.toString());
                 Toast.makeText(MainActivity.this, getString(R.string.get_history_error), Toast.LENGTH_LONG).show();
-
-            }
-        });
-    }
-
-
-    public void onClickListenerClearHistory(View v){
-        String deviceId = ApplicationData.getCurrentSessionId(this);
-        NetworkRequest.api().deleteDeviceOperationsForDeviceId(deviceId, new Callback<NetworkResult>() {
-            @Override
-            public void success(NetworkResult networkResult, Response response) {
-                Toast.makeText(MainActivity.this, getString(R.string.clear_history_success), Toast.LENGTH_SHORT).show();
-                edittext2.setText("");
-                editText.setText("0.0");
-                equation = "";
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-                Log.i("Get device history", "Error: " + error.toString());
-                Toast.makeText(MainActivity.this, getString(R.string.clear_history_error), Toast.LENGTH_SHORT).show();
 
             }
         });
