@@ -191,7 +191,7 @@ public class MainActivity extends ActionBarActivity  {
         calculator.setEquation(equation);
         calculator.setRadianTrigonometric(isRadianTrigo);
 		try {
-			calculator.calculate();
+			calculator.calculate(this);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}     
@@ -205,7 +205,7 @@ public class MainActivity extends ActionBarActivity  {
     private void saveToHistory(String operation) {
         final String deviceId = (ApplicationData.getCurrentSessionId(this) == null)? ApplicationData.getSessionId(this):ApplicationData.getCurrentSessionId(this);
         DeviceOperation deviceOperation = new DeviceOperation(deviceId, operation);
-        NetworkRequest.api().createDeviceOperation(deviceOperation, new Callback<NetworkResult>() {
+        NetworkRequest.api(this).createDeviceOperation(deviceOperation, new Callback<NetworkResult>() {
             @Override
             public void success(NetworkResult networkResult, Response response) {
                 Log.i("saveToHistory", "Success: " + networkResult.getResult());
@@ -221,17 +221,17 @@ public class MainActivity extends ActionBarActivity  {
 
     public void onClickListenerSin(View v){
         equation = "";
-        addString(AppConstants.SIN_TRIGO);
+        addString(getString(R.string.sin_trigo));
     }
 
     public void onClickListenerCos(View v){
         equation = "";
-        addString(AppConstants.COS_TRIGO);
+        addString(getString(R.string.cos_trigo));
     }
 
     public void onClickListenerTan(View v){
         equation = "";
-        addString(AppConstants.TAN_TRIGO);
+        addString(getString(R.string.tan_trigo));
     }
 
     public void onClickListenerDegreeRadian(View v){
@@ -247,12 +247,12 @@ public class MainActivity extends ActionBarActivity  {
 
     public void onClickListenerLog(View v){
         equation = "";
-        addString(AppConstants.LOG);
+        addString(getString(R.string.log));
     }
 
     public void onClickListenerLog10(View v){
         equation = "";
-        addString(AppConstants.LOG10);
+        addString(getString(R.string.log_10));
     }
 
     public void onClickListenerShowHistory(View v) {
@@ -261,7 +261,7 @@ public class MainActivity extends ActionBarActivity  {
 
     public void onClickListenerClearHistory(View v){
         String deviceId = ApplicationData.getCurrentSessionId(this);
-        NetworkRequest.api().deleteDeviceOperationsForDeviceId(deviceId, new Callback<NetworkResult>() {
+        NetworkRequest.api(this).deleteDeviceOperationsForDeviceId(deviceId, new Callback<NetworkResult>() {
             @Override
             public void success(NetworkResult networkResult, Response response) {
                 Toast.makeText(MainActivity.this, getString(R.string.clear_history_success), Toast.LENGTH_SHORT).show();
@@ -281,7 +281,7 @@ public class MainActivity extends ActionBarActivity  {
 
     private void findDeviceOperationsForCurrentDeviceId() {
         String deviceId = ApplicationData.getCurrentSessionId(this);
-        NetworkRequest.api().findDeviceOperationsForDeviceId(deviceId, new Callback<List<DeviceOperation>>() {
+        NetworkRequest.api(this).findDeviceOperationsForDeviceId(deviceId, new Callback<List<DeviceOperation>>() {
             @Override
             public void success(List<DeviceOperation> deviceOperations, Response response) {
                 String history = "";

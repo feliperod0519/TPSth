@@ -1,8 +1,6 @@
 package qc.cegep_ste_foy.equipe2.calculatorgs.helpers;
 
 import java.util.UUID;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,20 +8,20 @@ import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 
-import qc.cegep_ste_foy.equipe2.calculatorgs.AppConstants;
+import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
 
 public class ApplicationData {
-	
-	public static void saveCurrentSessionId(Context context, String CurrentSessionId) {
+
+    public static void saveCurrentSessionId(Context context, String CurrentSessionId) {
 		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
 		Editor editor = pref.edit();
-		editor.putString(AppConstants.CURRENT_SESSION_ID, CurrentSessionId);
+		editor.putString(context.getString(R.string.current_session_id), CurrentSessionId);
 		editor.commit();		
 	}
 	
 	public static String getCurrentSessionId(Context context) {
 		SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);		
-		return pref.getString(AppConstants.CURRENT_SESSION_ID, null);
+		return pref.getString(context.getString(R.string.current_session_id), null);
 	}
 	
 

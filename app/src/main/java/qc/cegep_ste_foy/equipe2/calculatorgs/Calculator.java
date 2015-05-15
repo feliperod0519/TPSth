@@ -1,6 +1,10 @@
 package qc.cegep_ste_foy.equipe2.calculatorgs;
 
+import android.content.Context;
+
 import java.util.Vector;
+
+import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
 
 public class Calculator {
 
@@ -36,14 +40,14 @@ public class Calculator {
 		return java.lang.Double.toString(result);
 	}
 	
-	public void calculate() throws Exception {
+	public void calculate(Context context) throws Exception {
 		try {
 
-            if (isTrigonometric(getEquation())) {
+            if (isTrigonometric(context, getEquation())) {
                 CalculatorTrigo.isRadianTrigo = isRadianTrigonometric();
-                result = CalculatorTrigo.calculate(getEquation());
-            } else if (isLog(getEquation())) {
-                result = CalculatorLog.calculate(getEquation());
+                result = CalculatorTrigo.calculate(context, getEquation());
+            } else if (isLog(context, getEquation())) {
+                result = CalculatorLog.calculate(context, getEquation());
             } else {
                 Vector<StringBuffer> sousEquations = isolateSubEquations();
                 result = joinSubResults(sousEquations);
@@ -281,21 +285,21 @@ public class Calculator {
 		} while(true);
 	}
 
-    private boolean isTrigonometric(String equation) {
+    private boolean isTrigonometric(Context context, String equation) {
         boolean isTrigo = false;
-        if (equation.contains(AppConstants.SIN_TRIGO)
-                || equation.contains(AppConstants.COS_TRIGO)
-                || equation.contains(AppConstants.TAN_TRIGO)) {
+        if (equation.contains(context.getString(R.string.sin_trigo))
+                || equation.contains(context.getString(R.string.cos_trigo))
+                || equation.contains(context.getString(R.string.tan_trigo))) {
             isTrigo = true;
         }
 
         return  isTrigo;
     }
 
-    private boolean isLog(String equation) {
+    private boolean isLog(Context context, String equation) {
         boolean isLog = false;
-        if (equation.contains(AppConstants.LOG)
-                || equation.contains(AppConstants.LOG10)) {
+        if (equation.contains(context.getString(R.string.log))
+                || equation.contains(context.getString(R.string.log_10))) {
             isLog = true;
         }
 

@@ -1,5 +1,9 @@
 package qc.cegep_ste_foy.equipe2.calculatorgs;
 
+import android.content.Context;
+
+import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
+
 /**
  * Created by Vicente on 3/17/2015.
  */
@@ -7,7 +11,7 @@ public class CalculatorTrigo {
 
     public static boolean isRadianTrigo = false;
 
-    public static double calculate(String equation) throws Exception {
+    public static double calculate(Context context, String equation) throws Exception {
 
         String[] equations = equation.split(" ");
 
@@ -15,11 +19,11 @@ public class CalculatorTrigo {
             String trigonometricOperation = equations[0];
             String value = equations[1];
 
-            if (trigonometricOperation.equals(AppConstants.SIN_TRIGO.trim())) {
+            if (trigonometricOperation.equals(context.getString(R.string.sin_trigo).trim())) {
                 return CalculatorTrigo.sin(Double.valueOf(value));
-            } else if (trigonometricOperation.equals(AppConstants.COS_TRIGO.trim())) {
+            } else if (trigonometricOperation.equals(context.getString(R.string.cos_trigo).trim())) {
                 return CalculatorTrigo.cos(Double.valueOf(value));
-            } if (trigonometricOperation.equals(AppConstants.TAN_TRIGO.trim())) {
+            } if (trigonometricOperation.equals(context.getString(R.string.tan_trigo).trim())) {
                 return CalculatorTrigo.tan(Double.valueOf(value));
             }
         } else {

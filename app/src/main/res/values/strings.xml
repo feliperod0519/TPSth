@@ -11,10 +11,13 @@
     <string name="clear_history_error">L\'historique n\'a pas été effacé!</string>
     <string name="title_activity_main3">Main3Activity</string>
 
-    <string name="sin_trigo">sin </string>
-    <string name="cos_trigo">cos </string>
-    <string name="tan_trigo">tan</string>
-    <string name="log">log</string>
-    <string name="log_10">log10</string>
+    <string name="sin_trigo">"sin "</string>
+    <string name="cos_trigo">"cos "</string>
+    <string name="tan_trigo">"tan "</string>
+    <string name="log">"log "</string>
+    <string name="log_10">"log10 "</string>
+
+    <string name="end_point">http://10.0.3.2:8080/api</string>
+    <string name="current_session_id">CURRENT_SESSION_ID</string>
 
 </resources>
