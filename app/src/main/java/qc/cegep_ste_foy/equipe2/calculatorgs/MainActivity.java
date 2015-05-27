@@ -235,7 +235,6 @@ public class MainActivity extends ActionBarActivity  {
     }
 
     public void onClickListenerDegreeRadian(View v){
-
         if (((Button)v).getText().equals(getString(R.string.degree))) {
             ((Button)v).setText(getString(R.string.radian));
             isRadianTrigo = true;
@@ -243,6 +242,10 @@ public class MainActivity extends ActionBarActivity  {
             ((Button)v).setText(getString(R.string.degree));
             isRadianTrigo = false;
         }
+    }
+
+    public void onClickListenerCloseParenthese(View v){
+        addString(getString(R.string.close_parenth));
     }
 
     public void onClickListenerLog(View v){

@@ -5,16 +5,17 @@
     <string name="radian">Rad</string>
     <string name="id">TestBox</string>
     <string name="hello_world">3 + 4</string>
+    <string name="close_parenth">)</string>
 
     <string name="get_history_error">Une erreur s\'est produite lors de l\'affichage de l\'historique!</string>
     <string name="clear_history_success">L\'historique a été effacé!</string>
     <string name="clear_history_error">L\'historique n\'a pas été effacé!</string>
     <string name="title_activity_main3">Main3Activity</string>
 
-    <string name="sin_trigo">"sin "</string>
-    <string name="cos_trigo">"cos "</string>
-    <string name="tan_trigo">"tan "</string>
-    <string name="log">"log "</string>
+    <string name="sin_trigo">"sin("</string>
+    <string name="cos_trigo">"cos("</string>
+    <string name="tan_trigo">"tan("</string>
+    <string name="log">"log("</string>
     <string name="log_10">"log10 "</string>
 
     <string name="end_point">http://10.0.3.2:8080/api</string>

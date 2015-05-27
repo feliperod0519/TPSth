@@ -2,6 +2,10 @@ package qc.cegep_ste_foy.equipe2.calculatorgs;
 
 import android.content.Context;
 
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.operator.Operator;
+
 import java.util.Vector;
 
 import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
@@ -43,20 +47,44 @@ public class Calculator {
 	public void calculate(Context context) throws Exception {
 		try {
 
-            if (isTrigonometric(context, getEquation())) {
-                CalculatorTrigo.isRadianTrigo = isRadianTrigonometric();
-                result = CalculatorTrigo.calculate(context, getEquation());
-            } else if (isLog(context, getEquation())) {
-                result = CalculatorLog.calculate(context, getEquation());
-            } else {
-                Vector<StringBuffer> sousEquations = isolateSubEquations();
-                result = joinSubResults(sousEquations);
-            }
+			String expressionString = getEquation();
+			Expression expressionBuilder = new ExpressionBuilder(expressionString)
+					.build();
+			result = expressionBuilder.evaluate();
 
 		} catch(NumberFormatException e) {
 			throw(new Exception("Caractère(s) invalide(s)"));
 		}
 	}
+
+	private double computeFactorial(String expressionString) {
+		Operator factorial = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
+
+			@Override
+			public double apply(double... args) {
+				final int arg = (int) args[0];
+				if ((double) arg != args[0]) {
+					throw new IllegalArgumentException("Operand for factorial has to be an integer");
+				}
+				if (arg < 0) {
+					throw new IllegalArgumentException("The operand of the factorial can not be less than zero");
+				}
+				double result = 1;
+				for (int i = 1; i <= arg; i++) {
+					result *= i;
+				}
+				return result;
+			}
+		};
+
+		double result = new ExpressionBuilder(expressionString)
+				.operator(factorial)
+				.build()
+				.evaluate();
+
+		return result;
+	}
+
 	
 	private Vector<StringBuffer> isolateSubEquations() throws Exception {
 		Vector<StringBuffer> subEquations = new Vector<StringBuffer>();
