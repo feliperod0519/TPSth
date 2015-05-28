@@ -2,6 +2,8 @@ package qc.cegep_ste_foy.equipe2.calculatorgs;
 
 import junit.framework.TestCase;
 
+import org.junit.Test;
+
 /**
  * Created by Vicente on 5/6/2015.
  */
@@ -17,6 +19,7 @@ public class CalculatorTest extends TestCase {
         super.tearDown();
     }
 
+    @Test
     public void testSetEquation() throws Exception {
         assertTrue(true);
     }

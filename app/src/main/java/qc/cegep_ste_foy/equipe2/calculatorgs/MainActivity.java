@@ -21,8 +21,6 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-//import qc.cegep_ste_foy.felipe.test1.R;
-
 public class MainActivity extends ActionBarActivity  {
 	
 	EditText editText, edittext2;
