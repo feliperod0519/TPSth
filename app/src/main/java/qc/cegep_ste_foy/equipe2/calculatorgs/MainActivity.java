@@ -42,8 +42,6 @@ public class MainActivity extends ActionBarActivity  {
 	Vibrator vibrator;
 	Calculator calculator;
 
-    private boolean isRadianTrigo = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -186,9 +184,8 @@ public class MainActivity extends ActionBarActivity  {
         vibrator.vibrate(30);
  
         calculator.setEquation(equation);
-        calculator.setRadianTrigonometric(isRadianTrigo);
 		try {
-			calculator.calculate(this);
+			calculator.calculate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}     

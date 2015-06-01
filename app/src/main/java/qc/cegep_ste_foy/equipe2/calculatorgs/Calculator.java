@@ -1,19 +1,15 @@
 package qc.cegep_ste_foy.equipe2.calculatorgs;
 
-import android.content.Context;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
-import net.objecthunter.exp4j.function.Function;
 import net.objecthunter.exp4j.operator.Operator;
 
-import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
 
 public class Calculator {
 
 	private String equation;
 	private double result;
-    private boolean isRadianTrigonometric = false;
 
     public Calculator() {
 		super();
@@ -31,19 +27,11 @@ public class Calculator {
 		return result;
 	}
 
-    public boolean isRadianTrigonometric() {
-        return isRadianTrigonometric;
-    }
-
-    public void setRadianTrigonometric(boolean isRadianTrigo) {
-        this.isRadianTrigonometric = isRadianTrigo;
-    }
-
     public String toString() {
 		return java.lang.Double.toString(result);
 	}
 	
-	public void calculate(Context context) throws Exception {
+	public void calculate() throws Exception {
 		try {
 
 			Operator factorial = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
