@@ -104,7 +104,6 @@ public class MainActivity extends ActionBarActivity  {
         edittext2.setText(equation);
     }
 
-
     public void onClickListenerFnc(View v){
     }  
      
@@ -232,16 +231,6 @@ public class MainActivity extends ActionBarActivity  {
         addString(getString(R.string.tan_trigo));
     }
 
-    public void onClickListenerDegreeRadian(View v){
-        if (((Button)v).getText().equals(getString(R.string.degree))) {
-            ((Button)v).setText(getString(R.string.radian));
-            isRadianTrigo = true;
-        } else {
-            ((Button)v).setText(getString(R.string.degree));
-            isRadianTrigo = false;
-        }
-    }
-
     public void onClickListenerCloseParenthese(View v){
         addString(getString(R.string.close_parenth));
     }
@@ -254,6 +243,10 @@ public class MainActivity extends ActionBarActivity  {
     public void onClickListenerLog10(View v){
         equation = "";
         addString(getString(R.string.log_10));
+    }
+
+    public void onClickListenerFactorial(View v){
+        addString(getString(R.string.factorial));
     }
 
     public void onClickListenerShowHistory(View v) {

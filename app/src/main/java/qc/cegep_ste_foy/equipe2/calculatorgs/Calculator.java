@@ -4,6 +4,7 @@ import android.content.Context;
 
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.function.Function;
 import net.objecthunter.exp4j.operator.Operator;
 
 import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
@@ -45,8 +46,36 @@ public class Calculator {
 	public void calculate(Context context) throws Exception {
 		try {
 
+			Operator factorial = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
+
+				@Override
+				public double apply(double... args) {
+					final int arg = (int) args[0];
+					if ((double) arg != args[0]) {
+						throw new IllegalArgumentException("Operand for factorial has to be an integer");
+					}
+					if (arg < 0) {
+						throw new IllegalArgumentException("The operand of the factorial can not be less than zero");
+					}
+					double result = 1;
+					for (int i = 1; i <= arg; i++) {
+						result *= i;
+					}
+					return result;
+				}
+			};
+
+			Function logb = new Function("log10", 1) {
+				@Override
+				public double apply(double... args) {
+					return Math.log10(args[0]);
+				}
+			};
+
 			String expressionString = getEquation();
 			Expression expressionBuilder = new ExpressionBuilder(expressionString)
+					.function(logb)
+					.operator(factorial)
 					.build();
 			result = expressionBuilder.evaluate();
 
@@ -55,33 +84,6 @@ public class Calculator {
 		}
 	}
 
-	private double computeFactorial(String expressionString) {
-		Operator factorial = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
-
-			@Override
-			public double apply(double... args) {
-				final int arg = (int) args[0];
-				if ((double) arg != args[0]) {
-					throw new IllegalArgumentException("Operand for factorial has to be an integer");
-				}
-				if (arg < 0) {
-					throw new IllegalArgumentException("The operand of the factorial can not be less than zero");
-				}
-				double result = 1;
-				for (int i = 1; i <= arg; i++) {
-					result *= i;
-				}
-				return result;
-			}
-		};
-
-		double result = new ExpressionBuilder(expressionString)
-				.operator(factorial)
-				.build()
-				.evaluate();
-
-		return result;
-	}
 
 
 
