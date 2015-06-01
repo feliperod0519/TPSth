@@ -320,14 +320,15 @@
                     android:textColor="@color/White" />
 
                 <Button
-                    android:id="@+id/buttonCloseParenthese"
+                    android:id="@+id/buttonFactorial"
                     style="@style/ButtonText"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:onClick="onClickListenerCloseParenthese"
-                    android:text="@string/close_parenth"
+                    android:onClick="onClickListenerFactorial"
+                    android:text="!"
                     android:textColor="@color/White" />
+
 
             </LinearLayout>
 
@@ -358,14 +359,25 @@
                     android:textColor="@color/White" />
 
                 <Button
-                    android:id="@+id/buttonFactorial"
+                    android:id="@+id/buttonOpenParenthese"
                     style="@style/ButtonText"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:onClick="onClickListenerFactorial"
-                    android:text="!"
+                    android:onClick="onClickListenerOpenParenthese"
+                    android:text="@string/open_parenth"
                     android:textColor="@color/White" />
+
+                <Button
+                    android:id="@+id/buttonCloseParenthese"
+                    style="@style/ButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerCloseParenthese"
+                    android:text="@string/close_parenth"
+                    android:textColor="@color/White" />
+
 
             </LinearLayout>
 

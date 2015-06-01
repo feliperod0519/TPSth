@@ -231,6 +231,10 @@ public class MainActivity extends ActionBarActivity  {
         addString(getString(R.string.tan_trigo));
     }
 
+    public void onClickListenerOpenParenthese(View v){
+        addString(getString(R.string.open_parenth));
+    }
+
     public void onClickListenerCloseParenthese(View v){
         addString(getString(R.string.close_parenth));
     }

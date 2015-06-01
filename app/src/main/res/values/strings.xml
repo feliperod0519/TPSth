@@ -5,6 +5,7 @@
     <string name="radian">Rad</string>
     <string name="id">TestBox</string>
     <string name="hello_world">3 + 4</string>
+    <string name="open_parenth">(</string>
     <string name="close_parenth">)</string>
 
     <string name="get_history_error">Une erreur s\'est produite lors de l\'affichage de l\'historique!</string>

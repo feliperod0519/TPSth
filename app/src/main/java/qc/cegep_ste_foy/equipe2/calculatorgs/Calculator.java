@@ -65,16 +65,8 @@ public class Calculator {
 				}
 			};
 
-			Function logb = new Function("log10", 1) {
-				@Override
-				public double apply(double... args) {
-					return Math.log10(args[0]);
-				}
-			};
-
 			String expressionString = getEquation();
 			Expression expressionBuilder = new ExpressionBuilder(expressionString)
-					.function(logb)
 					.operator(factorial)
 					.build();
 			result = expressionBuilder.evaluate();
