@@ -189,8 +189,9 @@ public class MainActivity extends ActionBarActivity  {
 		try {
 			calculator.calculate();
 		} catch (Exception e) {
-			e.printStackTrace();
-		}     
+            Toast.makeText(this, getString(R.string.calculation_error), Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+		}
         double res = calculator.getResult();
         String total2 = String.valueOf(res);
         editText.setText(total2);

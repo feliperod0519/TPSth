@@ -26,5 +26,6 @@
     <string name="current_session_id">CURRENT_SESSION_ID</string>
 
     <string name="no_equation_for_graph">Veuillez saisir une équation pour le graphique!</string>
+    <string name="calculation_error">Une erreur s\'est produite, cette expression a produit un résultat incorrect!</string>
 
 </resources>
