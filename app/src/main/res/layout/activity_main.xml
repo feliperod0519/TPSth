@@ -390,7 +390,7 @@
                 <Button
                     android:id="@+id/buttonVariableX"
                     style="@style/ButtonText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:onClick="onClickListenerVariableX"
@@ -400,7 +400,7 @@
                 <Button
                     android:id="@+id/buttonGraph"
                     style="@style/ButtonText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:onClick="onClickListenerGraph"
@@ -410,7 +410,7 @@
                 <Button
                     android:id="@+id/buttonShowHistory"
                     style="@style/ButtonText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:onClick="onClickListenerShowHistory"
@@ -420,7 +420,7 @@
                 <Button
                     android:id="@+id/buttonClearHistory"
                     style="@style/ButtonText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
                     android:onClick="onClickListenerClearHistory"
