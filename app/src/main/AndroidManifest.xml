@@ -33,6 +33,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="qc.cegep_ste_foy.equipe2.calculatorgs.graphportion.GraphPortionActivity"
+            android:label="@string/graph_portion_activity" >
+        </activity>
     </application>
 
 </manifest>

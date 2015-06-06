@@ -1,5 +1,6 @@
 package qc.cegep_ste_foy.equipe2.calculatorgs;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Context;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import qc.cegep_ste_foy.equipe2.calculatorgs.graphportion.GraphPortionActivity;
 import qc.cegep_ste_foy.equipe2.calculatorgs.helpers.ApplicationData;
 import qc.cegep_ste_foy.equipe2.calculatorgs.helpers.NetworkRequest;
 import qc.cegep_ste_foy.equipe2.calculatorgs.models.DeviceOperation;
@@ -106,7 +108,7 @@ public class MainActivity extends ActionBarActivity  {
     }  
      
     public void onClickListenerNeg(View v){
-        addcar('-');
+            addcar('-');
     }  
      
     public void onClickListenerPoint(View v){
@@ -248,6 +250,21 @@ public class MainActivity extends ActionBarActivity  {
 
     public void onClickListenerFactorial(View v){
         addString(getString(R.string.factorial));
+    }
+
+    public void onClickListenerVariableX(View v){
+        addString(getString(R.string.variable_x));
+    }
+
+    public void onClickListenerGraph(View v){
+
+        if (equation != null && equation.length()> 0) {
+            Intent intentGraph = GraphPortionActivity.getIntentGraphPortionActivity(this, equation);
+            this.startActivity(intentGraph);
+        } else {
+            Toast.makeText(this,getString(R.string.no_equation_for_graph), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void onClickListenerShowHistory(View v) {

@@ -388,6 +388,26 @@
                 android:orientation="horizontal" >
 
                 <Button
+                    android:id="@+id/buttonVariableX"
+                    style="@style/ButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerVariableX"
+                    android:text="x"
+                    android:textColor="@color/White" />
+
+                <Button
+                    android:id="@+id/buttonGraph"
+                    style="@style/ButtonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerGraph"
+                    android:text="Graph"
+                    android:textColor="@color/White" />
+
+                <Button
                     android:id="@+id/buttonShowHistory"
                     style="@style/ButtonText"
                     android:layout_width="wrap_content"
