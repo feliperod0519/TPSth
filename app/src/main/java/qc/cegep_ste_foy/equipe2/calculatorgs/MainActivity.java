@@ -268,6 +268,17 @@ public class MainActivity extends ActionBarActivity  {
 
     }
 
+    public void onClickListenerExp(View v){
+        addString(getString(R.string.variable_exp));
+    }
+
+    public void onClickListenerPi(View v){
+        addString(getString(R.string.variable_pi));
+    }
+    public void onClickListenerConstE(View v){
+        addString(getString(R.string.variable_E));
+    }
+
     public void onClickListenerShowHistory(View v) {
         findDeviceOperationsForCurrentDeviceId();
     }
