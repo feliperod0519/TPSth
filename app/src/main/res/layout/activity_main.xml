@@ -243,7 +243,7 @@
 
                 <Button
                     android:id="@+id/buttonVariableX"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -253,7 +253,7 @@
 
                 <Button
                     android:id="@+id/buttonNeg"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -263,7 +263,7 @@
 
                 <Button
                     android:id="@+id/buttonReset"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -273,7 +273,7 @@
 
                 <Button
                     android:id="@+id/buttonModulo"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -291,7 +291,7 @@
 
                 <Button
                     android:id="@+id/buttonSin"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -301,7 +301,7 @@
 
                 <Button
                     android:id="@+id/buttonCos"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -311,7 +311,7 @@
 
                 <Button
                     android:id="@+id/buttonTang"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -321,7 +321,7 @@
 
                 <Button
                     android:id="@+id/buttonFactorial"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -340,7 +340,7 @@
 
                 <Button
                     android:id="@+id/buttonLog"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -350,7 +350,7 @@
 
                 <Button
                     android:id="@+id/buttonLog10"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -360,7 +360,7 @@
 
                 <Button
                     android:id="@+id/buttonOpenParenthese"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
@@ -370,7 +370,7 @@
 
                 <Button
                     android:id="@+id/buttonCloseParenthese"
-                    style="@style/ButtonText"
+                    style="@style/ButtonText_second_pad"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"

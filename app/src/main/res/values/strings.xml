@@ -30,5 +30,6 @@
 
     <string name="no_equation_for_graph">Veuillez saisir une équation pour le graphique!</string>
     <string name="calculation_error">Une erreur s\'est produite, cette expression a produit un résultat incorrect!</string>
+    <string name="graph_display_error">Une erreur s\'est produite, cette expression n\'a pas pu être affichée!</string>
 
 </resources>
