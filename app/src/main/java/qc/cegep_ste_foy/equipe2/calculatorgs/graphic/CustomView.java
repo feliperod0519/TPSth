@@ -1,18 +1,14 @@
-package qc.cegep_ste_foy.equipe2.calculatorgs.graphportion;
+package qc.cegep_ste_foy.equipe2.calculatorgs.graphic;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import java.util.Hashtable;
 import android.widget.Toast;
-import net.objecthunter.exp4j.*;
 
-
-import java.util.Hashtable;
 
 import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
 

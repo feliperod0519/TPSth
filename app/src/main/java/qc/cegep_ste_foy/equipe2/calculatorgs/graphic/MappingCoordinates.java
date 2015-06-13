@@ -1,11 +1,10 @@
-package qc.cegep_ste_foy.equipe2.calculatorgs.graphportion;
+package qc.cegep_ste_foy.equipe2.calculatorgs.graphic;
 
 import android.graphics.Canvas;
 import net.objecthunter.exp4j.*;
-import android.util.Log;
+import net.objecthunter.exp4j.operator.Operator;
 
-import java.util.Random;
-
+import qc.cegep_ste_foy.equipe2.calculatorgs.Calculator;
 
 
 public class MappingCoordinates {
@@ -29,16 +28,28 @@ public class MappingCoordinates {
         float yi = -10;
         while (yi>=-10 && yi<=10)
         {
+            Operator factorial = Calculator.factorialOperator();
+
             Expression e = new ExpressionBuilder(this.expression)
-                    .variables("x")
+                    .operator(factorial)
+                    .variables("x", "pi", "e")
                     .build()
-                    .setVariable("x",x);
-            double valueToCompare = e.evaluate();
+                    .setVariable("x", x)
+                    .setVariable("pi", Math.PI)
+                    .setVariable("e", Math.E);
+
+            double valueToCompare = 0;
+            try {
+                valueToCompare = e.evaluate();
+            } catch (Exception ex) {
+            }
+
             if (valueToCompare>=(yi-MappingCoordinates.delta) && valueToCompare<=(yi+MappingCoordinates.delta))
             {
                 ToolBox.drawAPoint(canvas,x,yi*-1);
             }
             yi += MappingCoordinates.aproxValue;
+
         }
     }
 

@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="qc.cegep_ste_foy.equipe2.calculatorgs.graphportion.GraphPortionActivity"
+            android:name="qc.cegep_ste_foy.equipe2.calculatorgs.graphic.GraphicActivity"
             android:label="@string/graph_portion_activity" >
         </activity>
     </application>

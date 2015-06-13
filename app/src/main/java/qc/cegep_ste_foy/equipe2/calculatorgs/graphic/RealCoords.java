@@ -1,4 +1,4 @@
-package qc.cegep_ste_foy.equipe2.calculatorgs.graphportion;
+package qc.cegep_ste_foy.equipe2.calculatorgs.graphic;
 
 public class RealCoords {
 

@@ -1,6 +1,4 @@
-package qc.cegep_ste_foy.equipe2.calculatorgs.graphportion;
-
-import android.util.Log;
+package qc.cegep_ste_foy.equipe2.calculatorgs.graphic;
 
 public class AbstractCoords extends RealCoords
 {

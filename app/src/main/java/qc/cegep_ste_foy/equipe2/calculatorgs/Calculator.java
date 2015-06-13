@@ -34,24 +34,7 @@ public class Calculator {
 	public void calculate() throws Exception {
 		try {
 
-			Operator factorial = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
-
-				@Override
-				public double apply(double... args) {
-					final int arg = (int) args[0];
-					if ((double) arg != args[0]) {
-						throw new IllegalArgumentException("Operand for factorial has to be an integer");
-					}
-					if (arg < 0) {
-						throw new IllegalArgumentException("The operand of the factorial can not be less than zero");
-					}
-					double result = 1;
-					for (int i = 1; i <= arg; i++) {
-						result *= i;
-					}
-					return result;
-				}
-			};
+			Operator factorial = Calculator.factorialOperator();
 
 			String expressionString = getEquation();
 			Expression expressionBuilder = new ExpressionBuilder(expressionString)
@@ -66,6 +49,29 @@ public class Calculator {
 			throw(new Exception("Caractère(s) invalide(s)"));
 		}
 	}
+
+    public static Operator factorialOperator() {
+        Operator factorial = new Operator("!", 1, true, Operator.PRECEDENCE_POWER + 1) {
+
+            @Override
+            public double apply(double... args) {
+                final int arg = (int) args[0];
+                if ((double) arg != args[0]) {
+                    throw new IllegalArgumentException("Operand for factorial has to be an integer");
+                }
+                if (arg < 0) {
+                    throw new IllegalArgumentException("The operand of the factorial can not be less than zero");
+                }
+                double result = 1;
+                for (int i = 1; i <= arg; i++) {
+                    result *= i;
+                }
+                return result;
+            }
+        };
+
+        return factorial;
+    }
 
 
 
