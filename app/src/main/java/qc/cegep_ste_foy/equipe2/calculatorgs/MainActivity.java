@@ -193,7 +193,7 @@ public class MainActivity extends ActionBarActivity  {
 
         saveToHistory(equation);
 
-        ApplicationData.saveCurrentEquation(this, equation);
+        ApplicationData.saveCurrentEquation(this, editText.getText().toString());
     }
 
     private void saveToHistory(String operation) {
