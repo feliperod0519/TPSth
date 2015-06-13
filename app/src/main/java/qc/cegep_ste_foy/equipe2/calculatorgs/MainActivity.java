@@ -31,8 +31,7 @@ public class MainActivity extends ActionBarActivity  {
 		   button5, button6, button7, button8, button9;
 	
 	Button buttonPlus, buttonMinus, buttonMultiply, buttonDivide,
-		   buttonModulo, buttonReset, buttonPoint, buttonNeg,
-		   buttonFnc;
+		   buttonModulo, buttonReset, buttonPoint, buttonNeg;
 
     Button buttonSin, buttonCos, buttonTan;
 
@@ -70,7 +69,6 @@ public class MainActivity extends ActionBarActivity  {
 		buttonReset=(Button)findViewById(R.id.buttonReset);
 		buttonPoint=(Button)findViewById(R.id.buttonPoint);
 		buttonNeg=(Button)findViewById(R.id.buttonNeg);
-		buttonFnc=(Button)findViewById(R.id.buttonFn);
 
         buttonSin = (Button)findViewById(R.id.buttonSin);
         buttonCos = (Button)findViewById(R.id.buttonCos);
@@ -104,9 +102,6 @@ public class MainActivity extends ActionBarActivity  {
         edittext2.setText(equation);
     }
 
-    public void onClickListenerFnc(View v){
-    }  
-     
     public void onClickListenerNeg(View v){
             addcar('-');
     }  
@@ -217,17 +212,14 @@ public class MainActivity extends ActionBarActivity  {
     }
 
     public void onClickListenerSin(View v){
-        equation = "";
         addString(getString(R.string.sin_trigo));
     }
 
     public void onClickListenerCos(View v){
-        equation = "";
         addString(getString(R.string.cos_trigo));
     }
 
     public void onClickListenerTan(View v){
-        equation = "";
         addString(getString(R.string.tan_trigo));
     }
 
@@ -240,12 +232,10 @@ public class MainActivity extends ActionBarActivity  {
     }
 
     public void onClickListenerLog(View v){
-        equation = "";
         addString(getString(R.string.log));
     }
 
     public void onClickListenerLog10(View v){
-        equation = "";
         addString(getString(R.string.log_10));
     }
 

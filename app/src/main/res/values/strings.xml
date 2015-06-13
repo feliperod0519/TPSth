@@ -22,8 +22,8 @@
     <string name="factorial">"!"</string>
     <string name="variable_x">x</string>
     <string name="variable_exp">^</string>
-    <string name="variable_pi">3.14159</string>
-    <string name="variable_E">2.7182818284</string>
+    <string name="variable_pi">pi</string>
+    <string name="variable_E">e^</string>
 
     <string name="end_point">http://10.0.3.2:8080/api</string>
     <string name="current_session_id">CURRENT_SESSION_ID</string>

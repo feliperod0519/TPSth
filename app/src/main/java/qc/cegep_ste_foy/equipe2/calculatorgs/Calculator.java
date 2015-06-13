@@ -55,8 +55,11 @@ public class Calculator {
 
 			String expressionString = getEquation();
 			Expression expressionBuilder = new ExpressionBuilder(expressionString)
+					.variables("pi", "e")
 					.operator(factorial)
-					.build();
+					.build()
+					.setVariable("pi", Math.PI)
+					.setVariable("e", Math.E);
 			result = expressionBuilder.evaluate();
 
 		} catch(NumberFormatException e) {

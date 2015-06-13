@@ -242,13 +242,13 @@
                 android:orientation="horizontal" >
 
                 <Button
-                    android:id="@+id/buttonFn"
+                    android:id="@+id/buttonVariableX"
                     style="@style/ButtonText"
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:onClick="onClickListenerFnc"
-                    android:text="Fn"
+                    android:onClick="onClickListenerVariableX"
+                    android:text="x"
                     android:textColor="@color/White" />
 
                 <Button
@@ -382,54 +382,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linearLayoutHist"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/buttonVariableX"
-                    style="@style/ButtonText"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:onClick="onClickListenerVariableX"
-                    android:text="x"
-                    android:textColor="@color/White" />
-
-                <Button
-                    android:id="@+id/buttonGraph"
-                    style="@style/ButtonText"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:onClick="onClickListenerGraph"
-                    android:text="Graph"
-                    android:textColor="@color/White" />
-
-                <Button
-                    android:id="@+id/buttonShowHistory"
-                    style="@style/ButtonText"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:onClick="onClickListenerShowHistory"
-                    android:text="Hist"
-                    android:textColor="@color/White" />
-
-                <Button
-                    android:id="@+id/buttonClearHistory"
-                    style="@style/ButtonText"
-                    android:layout_width="0dp"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:onClick="onClickListenerClearHistory"
-                    android:text="Eff.H."
-                    android:textColor="@color/White" />
-
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/linearLayoutConst"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -468,6 +420,43 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/linearLayoutHist"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonGraph"
+                    style="@style/ButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerGraph"
+                    android:text="Graph"
+                    android:textColor="@color/White" />
+
+                <Button
+                    android:id="@+id/buttonShowHistory"
+                    style="@style/ButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerShowHistory"
+                    android:text="Hist"
+                    android:textColor="@color/White" />
+
+                <Button
+                    android:id="@+id/buttonClearHistory"
+                    style="@style/ButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerClearHistory"
+                    android:text="Eff.H."
+                    android:textColor="@color/White" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
