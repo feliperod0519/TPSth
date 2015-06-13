@@ -33,6 +33,7 @@ public class GraphPortionActivity extends ActionBarActivity {
 
         String expression = getIntent().getStringExtra(KEY_EXPRESSION);
         if (expression != null) {
+            graphCustomView.setCustomViewContext(this);
             graphCustomView.setExpression(expression);
             setTitle(expression);
         }

@@ -14,17 +14,20 @@ import net.objecthunter.exp4j.*;
 
 import java.util.Hashtable;
 
+import qc.cegep_ste_foy.felipe.equipe2.calculatorgs.R;
+
 public class CustomView extends View
 {
 
     private Paint paint = new Paint();
     private Hashtable<String,RealCoords> limitCoords = new Hashtable<String,RealCoords>();
     private String expression = "x";
+    private Context context;
 
     public CustomView(Context context)
     {
         super(context);
-        Initialization(null,0);
+        Initialization(null, 0);
     }
 
     public CustomView(Context context, AttributeSet attributes)
@@ -36,7 +39,7 @@ public class CustomView extends View
     public CustomView(Context context, AttributeSet attributes, int defStyle)
     {
         super(context,attributes,defStyle);
-        Initialization(attributes,defStyle);
+        Initialization(attributes, defStyle);
     }
 
     private void Initialization(AttributeSet attributes, int defStyle)
@@ -54,6 +57,14 @@ public class CustomView extends View
         return this.expression;
     }
 
+    public Context getCustomViewContext() {
+        return context;
+    }
+
+    public void setCustomViewContext(Context context) {
+        this.context = context;
+    }
+
     @Override
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
@@ -64,8 +75,14 @@ public class CustomView extends View
         float xi = -10;
         while (xi<=10)
         {
-            mappingCoordinates.yAxisSweeping(xi,canvas);
-            xi += MappingCoordinates.aproxValue;
+            try {
+                mappingCoordinates.yAxisSweeping(xi,canvas);
+                xi += MappingCoordinates.aproxValue;
+            } catch (Exception e) {
+                Toast.makeText(context, context.getString(R.string.graph_display_error), Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+                break;
+            }
         }
 
     }
