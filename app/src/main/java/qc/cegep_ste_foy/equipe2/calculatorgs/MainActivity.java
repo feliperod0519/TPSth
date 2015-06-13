@@ -192,6 +192,8 @@ public class MainActivity extends ActionBarActivity  {
         editText.setText(total2);
 
         saveToHistory(equation);
+
+        ApplicationData.saveCurrentEquation(this, equation);
     }
 
     private void saveToHistory(String operation) {
@@ -271,6 +273,7 @@ public class MainActivity extends ActionBarActivity  {
 
     public void onClickListenerShowHistory(View v) {
         findDeviceOperationsForCurrentDeviceId();
+
     }
 
     public void onClickListenerClearHistory(View v){
@@ -291,6 +294,11 @@ public class MainActivity extends ActionBarActivity  {
 
             }
         });
+    }
+
+    public void onClickListenerMemo(View v) {
+        equation = ApplicationData.getCurrentEquation(this);
+        edittext2.setText(equation);
     }
 
     private void findDeviceOperationsForCurrentDeviceId() {

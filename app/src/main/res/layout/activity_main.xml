@@ -456,6 +456,16 @@
                     android:text="Eff.H."
                     android:textColor="@color/White" />
 
+                <Button
+                    android:id="@+id/buttonMemo"
+                    style="@style/ButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:onClick="onClickListenerMemo"
+                    android:text="Mémo"
+                    android:textColor="@color/White" />
+
             </LinearLayout>
 
         </LinearLayout>

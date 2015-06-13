@@ -39,5 +39,18 @@ public class ApplicationData {
         return deviceId;
     }
 
+    public static void saveCurrentEquation(Context context, String currentEquation) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        Editor editor = pref.edit();
+        editor.putString(context.getString(R.string.current_equation), currentEquation);
+        editor.commit();
+    }
+
+    public static String getCurrentEquation(Context context) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        return pref.getString(context.getString(R.string.current_equation), null);
+    }
+
+
 
 }
